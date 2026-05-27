@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "TUI-APP"
+version = "0.1.0"
+description = "Application de terminal interactiva (TUI) para gestionar proyectos y servicios"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Developer", email = "dev@example.com"}
+]
+license = {text = "MIT"}
+
+dependencies = [
+    "textual>=0.40.0",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+    "pydantic>=2.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "black>=23.0.0",
+]
+
+[project.scripts]
+tui-app = "TUI_APP.main:main"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "black>=23.0.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=src/TUI_APP"

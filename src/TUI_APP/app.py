@@ -1,8 +1,8 @@
 from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer
-from devlab.screens import DashboardScreen, LogsScreen
+from TUI_APP.screens import DashboardScreen, LogsScreen
 
-class DevLabApp(App):
+class tui_app(App):
     CSS_PATH = "styles.css"  # opcional
 
     def compose(self) -> ComposeResult:
